@@ -22,14 +22,11 @@
 			// Run call back and set completed
 			completed = callback(deferred);
 
-			// Check ever 10 milliseconds if the function completed
-			var interval = setInterval(function() {
-				if(completed !== false) {
-					if(deferred.state() !== 'rejected')
-						deferred.resolve();
-					clearInterval(interval);
-				}
-			}, 10);
+			// Resolve the defferend by default
+			if(completed !== false) {
+				if(deferred.state() !== 'rejected')
+					deferred.resolve();
+			}
 
 			// Add the defered statement with the list of defferends
 			deferrends.push(deferred);
