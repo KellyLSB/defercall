@@ -27,6 +27,7 @@
 				if(deferred.state() !== 'rejected')
 					deferred.resolve();
 			}
+			else deferred.reject();
 
 			// Add the defered statement with the list of defferends
 			deferrends.push(deferred);
